@@ -4,8 +4,11 @@ CONTAINER_TAG = kotlin-aoc
 
 .PHONY: run clean docker
 
-run: build/Day15.jar
-	java -jar ./build/Day15.jar $(FILE)
+run: build/Day16.jar
+	java -jar ./build/Day16.jar $(FILE)
+
+build/Day16.jar: day16/Main.kt
+	$(CC) $(FLAGS) --env OUTPUT=$@ --env TARGET=day16/Main.kt $(CONTAINER_TAG)
 
 build/Day15.jar: day15/Main.kt
 	$(CC) $(FLAGS) --env OUTPUT=$@ --env TARGET=day15/Main.kt $(CONTAINER_TAG)
